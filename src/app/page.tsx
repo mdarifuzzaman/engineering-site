@@ -7,11 +7,14 @@ import ContactSection from "./components/ContactSection";
 import ClientSection from "./components/ClientSection";
 import { useEffect, useState } from "react";
 import { Configs } from "./Config";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 export default function Home({children}: any) {
 
   const [pageData, setPageData] = useState<any>();
   const [components, setComponents] = useState<any>([]);
+  const [sharedComponents, setSharedComponents] = useState<any>([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -21,6 +24,7 @@ export default function Home({children}: any) {
         setPageData(json);
         console.log("Layoutdata", json);
         if(json){
+          setSharedComponents(json.data?.sharedPage && json.data?.sharedPage.components);
           setComponents(json.data?.page && json.data?.page.components);
         }
       });           
@@ -31,6 +35,7 @@ export default function Home({children}: any) {
   return (
     <>      
       <>
+        <Header components={sharedComponents?.Header} homeHero={components?.HomeBanner}></Header> 
         <AboutSection aboutBanner={components?.AboutUsBanner}></AboutSection>
         <WhatWeDo whatWeDoBanner={components?.ServicesBanner}></WhatWeDo>
         <BlogSection blogSection={components?.AnotherBanner}></BlogSection>
@@ -40,6 +45,7 @@ export default function Home({children}: any) {
         <>
           {children}
         </>            
+        <Footer components={sharedComponents?.Footer}></Footer>     
       </>      
     </>
   );
