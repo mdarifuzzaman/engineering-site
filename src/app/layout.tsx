@@ -11,6 +11,7 @@ import "./assets/css/jquery.mCustomScrollbar.min.css"
 import { useEffect, useState } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import { Configs } from "./Config";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -30,7 +31,8 @@ export default function RootLayout({
 
   useEffect(() => {
     const fetchData = async () => {
-      fetch("/api/home").then(res => res.json()).then(json => {
+      const url = Configs.BaseCMSUrl + "/layoutservice/" + Configs.WebsiteId + "/page/en-US/?apiKey=" + Configs.ApiKey;
+      fetch("/api/home", {headers: {"req_url": url}}).then(res => res.json()).then(json => {
         setPageData(json);
         console.log("Layoutdata", json);
         if(json){

@@ -6,19 +6,18 @@ import EventSection from "./components/EventSection";
 import ContactSection from "./components/ContactSection";
 import ClientSection from "./components/ClientSection";
 import { useEffect, useState } from "react";
+import { Configs } from "./Config";
 
-export default function Home({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function Home({children}: any) {
 
   const [pageData, setPageData] = useState<any>();
   const [components, setComponents] = useState<any>([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      fetch("/api/home").then(res => res.json()).then(json => {
+      const url = Configs.BaseCMSUrl + "/layoutservice/" + Configs.WebsiteId + "/page/en-US/?apiKey=" + Configs.ApiKey;
+      console.log("URL", url);
+      fetch("/api/home", {headers: {"req_url": url}}).then(res => res.json()).then(json => {
         setPageData(json);
         console.log("Layoutdata", json);
         if(json){
