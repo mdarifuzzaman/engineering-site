@@ -68,8 +68,8 @@ const Header = ({components, homeHero}: any) => {
                           <h1 className="banner_taital">
                            {homeHero?.globalDataSource?.fields?.Title?.value}
                           </h1>
-                          {/* {markup && (<p className="banner_text" dangerouslySetInnerHTML={markup}>                        
-                          </p>)}     */}
+                            {markup && (<div className="banner_text" dangerouslySetInnerHTML={markup}>                        
+                          </div>)}    
                           <div className="btn_main">
 
                             { homeHero?.globalDataSource?.fields?.Cta?.value && JSON.parse(homeHero?.globalDataSource?.fields?.Cta?.value).map((ctaData: any, index: number) => (

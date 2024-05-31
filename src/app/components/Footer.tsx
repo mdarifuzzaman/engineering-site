@@ -12,7 +12,7 @@ const Footer = ({components}: any) => {
               </p>
               <div className="copyright_text"> 
                 {
-                  // <p dangerouslySetInnerHTML={{__html: components?.globalDataSource?.fields?.PoweredBy?.value}}></p>
+                  <div dangerouslySetInnerHTML={{__html: components?.globalDataSource?.fields?.PoweredBy?.value}}></div>
                 }
               </div>
             </div>
