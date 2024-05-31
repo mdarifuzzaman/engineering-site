@@ -1,8 +1,9 @@
 "use server"
 
 export async function GET(req: Request) {
-    const routeName = '/home';
+    //const routeName = '/home';
     let url = req.headers.get("req_url");
+    var routeName = req.headers.get("route");
     url = url + `&route=${routeName}`
     console.log("Request url", url);    
     return fetch(url, {

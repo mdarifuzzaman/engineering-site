@@ -1,7 +1,15 @@
 import { Fragment } from "react";
 
+function renderMarkdownToHTML(htmlData: string) {
+  // This is ONLY safe because the output HTML
+  // is shown to the same user, and because you
+  // trust this Markdown parser to not have bugs.
+  return {__html: htmlData};
+}
+
 const Header = ({components, homeHero}: any) => {
     console.log("Header data", homeHero);
+    const markup = renderMarkdownToHTML(homeHero?.globalDataSource?.fields?.SubTitle?.value);
     return(
         <div className="header_section">
           <div className="container">
@@ -60,8 +68,8 @@ const Header = ({components, homeHero}: any) => {
                           <h1 className="banner_taital">
                            {homeHero?.globalDataSource?.fields?.Title?.value}
                           </h1>
-                          <p className="banner_text" dangerouslySetInnerHTML={{__html: homeHero?.globalDataSource?.fields?.SubTitle?.value}}>                            
-                          </p>
+                          {/* {markup && (<p className="banner_text" dangerouslySetInnerHTML={markup}>                        
+                          </p>)}     */}
                           <div className="btn_main">
 
                             { homeHero?.globalDataSource?.fields?.Cta?.value && JSON.parse(homeHero?.globalDataSource?.fields?.Cta?.value).map((ctaData: any, index: number) => (

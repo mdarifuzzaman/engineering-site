@@ -13,7 +13,7 @@ export default function Layout({children}: any) {
     const fetchData = async () => {
       const url = Configs.BaseCMSUrl + "/layoutservice/" + Configs.WebsiteId + "/page/en-US/?apiKey=" + Configs.ApiKey;
       console.log("URL", url);
-      fetch("/api/home", {headers: {"req_url": url}}).then(res => res.json()).then(json => {
+      fetch("/api/home", {headers: {"req_url": url, "route": "/blog"}}).then(res => res.json()).then(json => {
         setPageData(json);
         console.log("Layoutdata", json);
         if(json){
@@ -27,9 +27,7 @@ export default function Layout({children}: any) {
 
     return(
         <>
-            <Header components={sharedComponents?.Header} homeHero={components?.HomeBanner}></Header> 
-            {children}
-            <Footer components={sharedComponents?.Footer}></Footer>     
+            {children}                
         </>
     )
 }

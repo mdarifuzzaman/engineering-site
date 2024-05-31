@@ -20,7 +20,7 @@ export default function Home({children}: any) {
     const fetchData = async () => {
       const url = Configs.BaseCMSUrl + "/layoutservice/" + Configs.WebsiteId + "/page/en-US/?apiKey=" + Configs.ApiKey;
       console.log("URL", url);
-      fetch("/api/home", {headers: {"req_url": url}}).then(res => res.json()).then(json => {
+      fetch("/api/home", {headers: {"req_url": url, "route": "/home"}}).then(res => res.json()).then(json => {
         setPageData(json);
         console.log("Layoutdata", json);
         if(json){
@@ -35,7 +35,6 @@ export default function Home({children}: any) {
   return (
     <>      
       <>
-        <Header components={sharedComponents?.Header} homeHero={components?.HomeBanner}></Header> 
         <AboutSection aboutBanner={components?.AboutUsBanner}></AboutSection>
         <WhatWeDo whatWeDoBanner={components?.ServicesBanner}></WhatWeDo>
         <BlogSection blogSection={components?.AnotherBanner}></BlogSection>
@@ -44,8 +43,7 @@ export default function Home({children}: any) {
         <ClientSection></ClientSection>
         <>
           {children}
-        </>            
-        <Footer components={sharedComponents?.Footer}></Footer>     
+        </>              
       </>      
     </>
   );
