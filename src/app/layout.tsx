@@ -38,8 +38,8 @@ export default async function RootLayout({
   let sharedComponents: any;
   let components: any;
   if(response){
-    sharedComponents = response?.sharedPage.components;
-    components = response?.page.components;
+    sharedComponents = response?.sharedPage?.components;
+    components = response?.page?.components;
   }
   return (
     <html lang="en">

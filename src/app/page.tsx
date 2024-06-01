@@ -1,36 +1,29 @@
-'use client'
+
 import AboutSection from "./components/AboutSection";
 import WhatWeDo from "./components/WhatWeDo";
 import BlogSection from "./components/BlogSection";
 import EventSection from "./components/EventSection";
 import ContactSection from "./components/ContactSection";
 import ClientSection from "./components/ClientSection";
-import { useEffect, useState } from "react";
 import { Configs } from "./Config";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
 
-export default function Home({children}: any) {
+const fetchData = async () => {
+  const url = Configs.BaseCMSUrl + "/layoutservice/" + Configs.WebsiteId + "/page/en-US/?apiKey=" + Configs.ApiKey;  
+  const response =  await fetch(url + "&route=/home", {headers: {"content-type": "application/json"}});  
+  const json = await response.json();  
+  return json;
+}
 
-  const [pageData, setPageData] = useState<any>();
-  const [components, setComponents] = useState<any>([]);
-  const [sharedComponents, setSharedComponents] = useState<any>([]);
+export default async function Home({children}: any) {
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const url = Configs.BaseCMSUrl + "/layoutservice/" + Configs.WebsiteId + "/page/en-US/?apiKey=" + Configs.ApiKey;
-      console.log("URL", url);
-      fetch("/api/home", {headers: {"req_url": url, "route": "/home"}}).then(res => res.json()).then(json => {
-        setPageData(json);
-        console.log("Layoutdata", json);
-        if(json){
-          setSharedComponents(json.data?.sharedPage && json.data?.sharedPage.components);
-          setComponents(json.data?.page && json.data?.page.components);
-        }
-      });           
-    }
-    fetchData();
-  }, []);
+  const response = await fetchData();
+  console.log("response", response);
+  let sharedComponents: any;
+  let components: any;
+  if(response){
+    sharedComponents = response?.sharedPage.components;
+    components = response?.page.components;
+  }
 
   return (
     <>      
@@ -40,7 +33,7 @@ export default function Home({children}: any) {
         <BlogSection blogSection={components?.AnotherBanner}></BlogSection>
         <EventSection videoBanner={components?.VideoBanner}></EventSection>
         <ContactSection></ContactSection>
-        <ClientSection></ClientSection>
+        <ClientSection clientSection={components?.ClientSection}></ClientSection>
         <>
           {children}
         </>              

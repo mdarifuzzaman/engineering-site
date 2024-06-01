@@ -1,4 +1,5 @@
 import { Fragment } from "react";
+import { renderMarkdownToHTML } from "../controls/dataToHtml";
 
 const Footer = ({components}: any) => {
   console.log("Footer data", components);
@@ -12,7 +13,7 @@ const Footer = ({components}: any) => {
               </p>
               <div className="copyright_text"> 
                 {
-                  <div dangerouslySetInnerHTML={{__html: components?.globalDataSource?.fields?.PoweredBy?.value}}></div>
+                  <div dangerouslySetInnerHTML={renderMarkdownToHTML(components?.globalDataSource?.fields?.PoweredBy?.value)}></div>
                 }
               </div>
             </div>

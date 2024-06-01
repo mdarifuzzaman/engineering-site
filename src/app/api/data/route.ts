@@ -1,8 +1,7 @@
 "use server"
 
 export async function GET(req: Request) {
-    //const routeName = '/home';
-    let url = req.headers.get("req_url");
+    let url = process.env.CMSLishtHost + "/layoutservice/" + process.env.WebsiteId + "/page/en-US/?apiKey=" + process.env.ApiKey; 
     var routeName = req.headers.get("route");
     url = url + `&route=${routeName}`
     console.log("Request url", url);    

@@ -1,14 +1,8 @@
-import { useEffect, useState } from "react";
-
+import { renderMarkdownToHTML } from "../controls/dataToHtml";
 
 const AboutSection = ({aboutBanner}: any) => {
     console.log("About", aboutBanner);
-    const [cta, setCta] = useState<any>();
-    useEffect(() => {
-      if(aboutBanner){
-         setCta(JSON.parse(aboutBanner?.globalDataSource?.fields?.Cta?.value));
-      }
-    }, [aboutBanner]);
+    const cta = JSON.parse(aboutBanner?.globalDataSource?.fields?.Cta?.value);
 
     return(
         <div className="about_section layout_padding">
@@ -25,7 +19,7 @@ const AboutSection = ({aboutBanner}: any) => {
                      <div className="about_img"><img src={aboutBanner?.globalDataSource?.fields?.Image?.value}/></div>
                   </div>
                   <div className="col-md-6">
-                     <p className="about_text_1" dangerouslySetInnerHTML={{__html: aboutBanner?.globalDataSource?.fields?.Desc?.value }}></p>
+                     <div className="about_text_1" dangerouslySetInnerHTML={renderMarkdownToHTML(aboutBanner?.globalDataSource?.fields?.Desc?.value)}></div>
                      <div className="readmore_bt"><a href={cta && cta.length > 0 && cta[0].Url}>{cta && cta.length > 0 && cta[0].Title}</a></div>
                   </div>
                </div>

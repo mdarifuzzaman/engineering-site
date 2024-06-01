@@ -1,11 +1,6 @@
 import { Fragment } from "react";
+import { renderMarkdownToHTML } from "../controls/dataToHtml";
 
-function renderMarkdownToHTML(htmlData: string) {
-  // This is ONLY safe because the output HTML
-  // is shown to the same user, and because you
-  // trust this Markdown parser to not have bugs.
-  return {__html: htmlData};
-}
 
 const Header = ({components, homeHero}: any) => {
     console.log("Header data", homeHero);

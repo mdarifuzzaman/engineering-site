@@ -1,13 +1,6 @@
-import { useEffect, useState } from "react";
-
 const EventSection = ({videoBanner}: any) => {
    console.log("videoBanner", videoBanner);
-    const [cta, setCta] = useState<any>();
-    useEffect(() => {
-      if(videoBanner){
-         setCta(JSON.parse(videoBanner?.globalDataSource?.fields?.Cta?.value));
-      }
-    }, [videoBanner]);
+   const cta = JSON.parse(videoBanner?.globalDataSource?.fields?.Cta?.value);
     return(
         <div className="event_section layout_padding">
          <div className="container">
