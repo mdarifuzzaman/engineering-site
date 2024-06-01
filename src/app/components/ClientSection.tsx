@@ -18,10 +18,10 @@ const ClientSection = ({clientSection}: any) => {
                   </ol>
                   <div className="carousel-inner">
                      {clientSection?.globalDataSource?.fields?.ClientRemarks?.value && JSON.parse(clientSection?.globalDataSource?.fields?.ClientRemarks?.value).map((remarks:any, index: number) => (
-                        <div className={index == 0? "carousel-item active": "carousel-item"}>
-                        <h3 className="client_name">{remarks?.client_name}</h3>
-                        <p className="event_text">{remarks?.event_text}</p>
-                     </div>
+                        <div className={index == 0? "carousel-item active": "carousel-item"} key={index}>
+                           <h3 className="client_name">{remarks?.client_name}</h3>
+                           <p className="event_text">{remarks?.event_text}</p>
+                        </div>
                      ))}
                      
                      {/* <div className="carousel-item">
