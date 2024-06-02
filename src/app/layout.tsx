@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 const fetchData = async () => {
   const url = Configs.BaseCMSUrl + "/layoutservice/" + Configs.WebsiteId + "/page/en-US/?apiKey=" + Configs.ApiKey;
   console.log("URL", url + "&route=/home");
-  const response =  await fetch(url + "&route=/home", {headers: {"content-type": "application/json"}});  
+  const response =  await fetch(url + "&route=/home", { headers: {"content-type": "application/json"}, next: { revalidate: 100 }});  
   const json = await response.json();  
   return json;
 }
