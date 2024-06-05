@@ -327,8 +327,14 @@ button {
 
 .banner_section {
     width: 100%;
-    float: left;
+    float: right;
     padding: 90px 0px 90px 0px;
+    background-image: url(../../../../public/images/banner-bg.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    height: auto;
+    position: relative;
+    z-index: 1;
 }
 
 .banner_taital_main {

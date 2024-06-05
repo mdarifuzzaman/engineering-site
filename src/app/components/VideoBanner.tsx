@@ -1,15 +1,15 @@
-const EventSection = ({videoBanner}: any) => {
-   console.log("videoBanner", videoBanner);
-   const cta = JSON.parse(videoBanner?.globalDataSource?.fields?.Cta?.value);
+const VideoBanner = ({props}: any) => {
+   console.log("props", props);
+   const cta = JSON.parse(props?.globalDataSource?.fields?.Cta?.value);
     return(
         <div className="event_section layout_padding">
          <div className="container">
             <div className="row">
                <div className="col-md-12">
-                  <h1 className="event_taital">{videoBanner?.globalDataSource?.fields?.Title?.value}</h1>
+                  <h1 className="event_taital">{props?.globalDataSource?.fields?.Title?.value}</h1>
                </div>
             </div>
-            <div className="event_section_2" style={{"backgroundImage": `url(${videoBanner?.globalDataSource?.fields?.VideoImage?.value})`}}>
+            <div className="event_section_2" style={{"backgroundImage": `url(${props?.globalDataSource?.fields?.VideoImage?.value})`}}>
                <div className="row">
                   <div className="col-md-12">
                      <div className="blog_img">
@@ -25,4 +25,4 @@ const EventSection = ({videoBanner}: any) => {
     )
 }
 
-export default EventSection;
+export default VideoBanner;

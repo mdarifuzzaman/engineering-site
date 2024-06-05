@@ -3,8 +3,7 @@ import { renderMarkdownToHTML } from "../controls/dataToHtml";
 
 
 const Header = ({components, homeHero}: any) => {
-    console.log("Header data", homeHero);
-    const markup = renderMarkdownToHTML(homeHero?.globalDataSource?.fields?.SubTitle?.value);
+    console.log("Header data", homeHero);    
     return(
         <div className="header_section">
           <div className="container">
@@ -51,38 +50,7 @@ const Header = ({components, homeHero}: any) => {
                 </form> */}
               </div>
             </nav>
-          </div>
-          <div className="banner_section layout_padding">
-            <div id="my_slider" className="carousel slide" data-ride="carousel">
-              <div className="carousel-inner">
-                <div className="carousel-item active">
-                  <div className="container">
-                    <div className="row">
-                      <div className="col-sm-12">
-                        <div className="banner_taital_main">
-                          <h1 className="banner_taital">
-                           {homeHero?.globalDataSource?.fields?.Title?.value}
-                          </h1>
-                            {markup && (<div className="banner_text" dangerouslySetInnerHTML={markup}>                        
-                          </div>)}    
-                          <div className="btn_main">
-
-                            { homeHero?.globalDataSource?.fields?.Cta?.value && JSON.parse(homeHero?.globalDataSource?.fields?.Cta?.value).map((ctaData: any, index: number) => (
-                              <Fragment key={index}><div className={index === 0? "started_text active": "started_text"}>
-                              <a href={ctaData?.Url}>{ctaData?.ButtonText}</a>
-                              </div>
-                              </Fragment>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                                
-              </div>              
-            </div>
-          </div>
+          </div>          
         </div>
     )
 }

@@ -1,15 +1,15 @@
-const WhatWeDo = ({whatWeDoBanner}: any) => {
-   console.log("whatWeDoBanner", whatWeDoBanner);
-   const cta = JSON.parse(whatWeDoBanner?.globalDataSource?.fields?.Cta?.value);
-   const services = JSON.parse(whatWeDoBanner?.globalDataSource?.fields?.Services?.value)
+const ServicesBanner = ({props}: any) => {
+   console.log("props", props);
+   const cta = JSON.parse(props?.globalDataSource?.fields?.Cta?.value);
+   const services = JSON.parse(props?.globalDataSource?.fields?.Services?.value)
     return(
         <div className="services_section layout_padding">
          <div className="container">
             <div className="services_main">
                <div className="row">
                   <div className="col-md-12">
-                     <h1 className="services_taital">{whatWeDoBanner?.globalDataSource?.fields?.Title?.value} <span className="border_0"></span></h1>
-                     <p className="services_text">{whatWeDoBanner?.globalDataSource?.fields?.SubTitle?.value}</p>
+                     <h1 className="services_taital">{props?.globalDataSource?.fields?.Title?.value} <span className="border_0"></span></h1>
+                     <p className="services_text">{props?.globalDataSource?.fields?.SubTitle?.value}</p>
                   </div>
                </div>
                <div className="services_section_2">
@@ -29,4 +29,4 @@ const WhatWeDo = ({whatWeDoBanner}: any) => {
       </div>
     )
 }
-export default WhatWeDo;
+export default ServicesBanner;
