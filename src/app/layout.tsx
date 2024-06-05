@@ -67,7 +67,7 @@ export default async function RootLayout({
         {
           blocks && blocks.map((block: any) => ComponentFactory(block))
         }
-        
+
         {error !== null || error !== undefined ? error: null}
 
         {children }      
@@ -77,6 +77,7 @@ export default async function RootLayout({
         <Script strategy="beforeInteractive"  src="js/bootstrap.bundle.min.js"></Script>
         <Script strategy="beforeInteractive"  src="js/jquery-3.0.0.min.js"></Script>
         <Script strategy="beforeInteractive"  src="js/plugin.js"></Script>
+        <Footer components={sharedComponents?.Footer}></Footer>
       </body>
     </html>
   );
