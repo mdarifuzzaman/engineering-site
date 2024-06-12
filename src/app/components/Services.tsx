@@ -8,19 +8,19 @@ const Services = () => {
     const [services, setServices] = useState<any>();
     const [cta, setCta] = useState<any>();
     
-    useEffect(() => {
-        const loadData = async () => {                       
-            const response =  await fetch("/api/data", {headers: {"route": "/services"}});  
-            const json = await response.json();  
-            if(json && json !== undefined){
-                setComponents(json?.data?.page?.components);
-                setCta(JSON.parse(json?.data?.page?.components?.Services?.globalDataSource?.fields?.Cta?.value));
-                setServices(JSON.parse(json?.data?.page?.components?.Services?.globalDataSource?.fields?.Services?.value));
-            }
+   //  useEffect(() => {
+   //      const loadData = async () => {                       
+   //          const response =  await fetch("/api/data", {headers: {"route": "/services"}});  
+   //          const json = await response.json();  
+   //          if(json && json !== undefined){
+   //              setComponents(json?.data?.page?.components);
+   //              setCta(JSON.parse(json?.data?.page?.components?.Services?.globalDataSource?.fields?.Cta?.value));
+   //              setServices(JSON.parse(json?.data?.page?.components?.Services?.globalDataSource?.fields?.Services?.value));
+   //          }
             
-        }
-        loadData();
-    }, [])
+   //      }
+   //      loadData();
+   //  }, [])
      return(
          <div className="services_section layout_padding">
           <div className="container">

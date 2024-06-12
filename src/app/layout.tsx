@@ -54,7 +54,8 @@ export default async function RootLayout({
       for (const [key, value] of Object.entries<any>(components)) {
         const componentName = key;
         const name = value?.name;
-        blocks.push({component: componentName, name, value});
+        const isPublished = value?.isPublished;
+        blocks.push({component: componentName, name, value, isPublished});
       }
     }
   }
