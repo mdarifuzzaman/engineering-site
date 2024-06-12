@@ -19,6 +19,9 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Engineering Site",
   description: "A site to solve your engineering problems",
+  icons: {
+    icon: './favicon.ico'
+  }
 };
 
 const fetchData = async () => {
