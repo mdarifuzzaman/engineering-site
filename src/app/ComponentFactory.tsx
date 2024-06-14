@@ -12,6 +12,7 @@ import ServiceTrafficEng from "./components/ServiceTrafficEng";
 import ServiceFeatureLevelSurvey from "./components/ServiceFeatureLevelSurvey";
 import ContactUs from "./components/ContactUs";
 import AboutUs from "./components/AboutUs";
+import TestComponent from "./components/TestComponent";
 
 const Components: any = {
     HomeBanner: HeroBanner,
@@ -24,7 +25,8 @@ const Components: any = {
     ServiceTrafficEng: ServiceTrafficEng,
     ServiceFeatureLevelSurvey: ServiceFeatureLevelSurvey,
     ContactUs: ContactUs,
-    AboutUs: AboutUs
+    AboutUs: AboutUs,
+    TestComponent: TestComponent
 }
 
 export default function ComponentFactory(block: any){
