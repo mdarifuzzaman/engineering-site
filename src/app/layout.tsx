@@ -17,10 +17,10 @@ import ComponentFactory from "./ComponentFactory";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Engineering Site",
+  title: "Transforming Your Vision into Engineered Solutions for Civil Infrastructure",
   description: "A site to solve your engineering problems",
   icons: {
-    icon: './favicon.ico'
+    icon: '/favicon.ico'
   }
 };
 

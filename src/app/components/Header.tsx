@@ -10,7 +10,7 @@ const Header = ({components, homeHero}: any) => {
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
               <div className="logo">
                 <a href="/">
-                  <img src={components?.globalDataSource?.fields?.HeaderLogo?.value} alt="company logo"/>
+                  <img src={components?.globalDataSource?.fields?.HeaderLogo?.value} alt="company logo" height={30} width={200}/>
                 </a>
               </div>
               <button
