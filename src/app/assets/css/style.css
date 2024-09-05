@@ -234,7 +234,7 @@ button {
 .header_section {
     width: 100%;
     float: left;
-    background-image: url(../../../../public/images/banner-bg.png);
+    /* background-image: url(../../../../public/images/banner-bg.png); */
     background-size: 100%;
     background-repeat: no-repeat;
     height: auto;
@@ -254,7 +254,7 @@ button {
     height: 100%;
     left: 0px;
     right: initial;
-    background-color: rgb( 225, 237, 249, 0.8);
+    /* background-color: rgb( 225, 237, 249, 0.8); */
     background-size: 100%;
     top: 0px;
     z-index: -1;
@@ -329,7 +329,7 @@ button {
     width: 100%;
     float: right;
     padding: 90px 0px 90px 0px;
-    background-image: url(../../../../public/images/banner-bg.png);
+    /* background-image: url(../../../../public/images/banner-bg.png); */
     background-size: 100%;
     background-repeat: no-repeat;
     height: auto;

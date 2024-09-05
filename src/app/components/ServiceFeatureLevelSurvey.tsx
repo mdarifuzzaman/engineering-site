@@ -4,6 +4,8 @@ const ServiceFeatureLevelSurvey = ({props}: any) => {
     console.log("ServiceCivilEng", props);
      return(
          <div className="services_section layout_padding">
+         <div style={{position: "absolute", zIndex: "-1", width: "100%", height: "55%", backgroundImage: `url(${props?.globalDataSource?.fields?.BackgroundImageUrl?.value})`, "backgroundSize": "cover", "backgroundPosition": "center", "backgroundRepeat": "no-repeat", "opacity": "0.3"}}></div>          
+         
           <div className="container">
              <div className="services_main">
                 <div className="row">
