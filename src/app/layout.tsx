@@ -40,7 +40,7 @@ export default async function RootLayout({
 }>) {  
 
   const response = await fetchData();
-  console.log("response", response);
+  //console.log("response", response);
   let sharedComponents: any;
   let components: any;
   let blocks: Array<any> = new Array<any>();
