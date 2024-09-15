@@ -40,14 +40,14 @@ const ServicesBanner = ({props}: any) => {
                   <div className="row">
                      {serviceList && serviceList?.data?.map((service: any, index: number) => (
                         <div className="col-md-4" key={index}>
-                           <div className="icon_1"><img src={service?.fields?.Image?.value} height={200} width={200} /></div>
+                           <div className="icon_1"><img src={service?.fields?.Image?.value} /></div>
                            <h3 className="selection_text">{service?.fields?.Title?.value}</h3>
                            <div className="many_text" dangerouslySetInnerHTML={renderMarkdownToHTML(service?.fields?.Desc?.value)}></div>
                         </div>
                      ))}                    
                   </div>
                </div>               
-               <div className="read_bt"><a href={cta && cta.length > 0 && cta[0].Url}>{cta && cta.length > 0 && cta[0].Title}</a></div>
+               {/* <div className="read_bt"><a href={cta && cta.length > 0 && cta[0].Url}>{cta && cta.length > 0 && cta[0].Title}</a></div> */}
             </div>
          </div>
       </div>

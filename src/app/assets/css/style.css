@@ -338,14 +338,14 @@ button {
 }
 
 .banner_taital_main {
-    width: 43%;
+    width: 100%;
     float: left;
 }
 
 .banner_taital {
     width: 100%;
     float: left;
-    font-size: 54px;
+    font-size: 35px;
     color: #060707;
     font-weight: bold;
     padding-bottom: 0px;
@@ -546,8 +546,6 @@ button {
 }
 
 .icon_1 {
-    width: 130px;
-    height: 100px;
     float: left;
     background: #fff;
     padding: 20px;

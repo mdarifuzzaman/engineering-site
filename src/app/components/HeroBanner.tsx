@@ -5,7 +5,7 @@ export default function HeroBanner({props}: any){
     const markup = renderMarkdownToHTML(props?.globalDataSource?.fields?.SubTitle?.value);
     return(
         <div className="banner_section layout_padding">
-            <div style={{position: "absolute", zIndex: "-1", width: "100%", height: "100%", backgroundImage: `url(${props?.globalDataSource?.fields?.BackgroundImageUrl?.value})`, "backgroundSize": "cover", "backgroundPosition": "center", "backgroundRepeat": "no-repeat"}}></div>                    
+            <div style={{position: "absolute", zIndex: "-1", "opacity": "0.8", width: "100%", height: "100%", backgroundImage: `url(${props?.globalDataSource?.fields?.BackgroundImageUrl?.value})`, "backgroundSize": "cover", "backgroundPosition": "center", "backgroundRepeat": "no-repeat"}}></div>                    
             <div id="my_slider" className="carousel slide" data-ride="carousel">
               <div className="carousel-inner">
                 <div className="carousel-item active">
