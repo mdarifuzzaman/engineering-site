@@ -1,9 +1,12 @@
 import { Fragment } from "react";
 import { renderMarkdownToHTML } from "../controls/dataToHtml";
+import { headers } from "next/headers";
 
 
 const Header = ({components, homeHero}: any) => {
     console.log("Header data", homeHero);    
+    const headerList = headers();
+    const pathname = headerList.get("x-current-path");
     return(
         <div className="header_section">
           <div className="container">
@@ -30,7 +33,7 @@ const Header = ({components, homeHero}: any) => {
               >
                 <ul className="navbar-nav ml-auto">
                   {components?.globalDataSource?.fields?.HeaderNav.value && JSON.parse(components?.globalDataSource?.fields?.HeaderNav.value).map((nav: any, index: number) => (
-                    <li  className={index === 0? "nav-item active": "nav-item"} key={index}>
+                    <li  className={pathname && pathname?.length > 1 && nav?.Title == "Contact Us" && pathname.includes("contact-us") ? "nav-item active":pathname?.length === 1 &&  nav?.Title.toLowerCase() === "home" ? "nav-item active": pathname && pathname?.length > 0 && pathname?.includes(nav?.Title.toLowerCase()) ? "nav-item active": "nav-item"} key={index}>
                       <a className="nav-link" href={nav?.Url}>
                         {nav?.Title}
                       </a>
